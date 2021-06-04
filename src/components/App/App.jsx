@@ -30,7 +30,7 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Gallery of the Unknown</h1>
       </header>
-      <GalleryList gallery={galleryList} />
+      <GalleryList gallery={galleryList} fetchGallery={fetchGallery}/>
     </div>
   );
 }
