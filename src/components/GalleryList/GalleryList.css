@@ -1,0 +1,7 @@
+.gallery-pictures-container {
+  display: flex;
+  width: 700px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto 0 auto;
+}

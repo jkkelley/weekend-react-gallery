@@ -1,0 +1,29 @@
+.picture-container {
+  height: 290px;
+  max-width: 400px;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.img-container {
+  width: 200px;
+  height: 200px;
+}
+
+.pic-container {
+  width: 199px;
+  height: 168px;
+}
+
+.love-it-button {
+  max-width: 75px;
+  margin-left: 62px;
+}
+
+.love-it-p-tag {
+    height: 15px
+}
