@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
-import GalleryList from "../GalleryList/GalleryList"
-
+import GalleryList from "../GalleryList/GalleryList";
+import AddGalleryImageForm from "../AddGalleryImageForm/AddGalleryImageForm";
 
 function App() {
   const [galleryList, setGalleryList] = useState([]);
@@ -13,7 +13,7 @@ function App() {
       .get("/gallery")
       .then((response) => {
         // We should see our data in the console
-        console.log('response from server', response.data);
+        console.log("response from server", response.data);
         setGalleryList(response.data);
       })
       .catch((error) => {
@@ -30,7 +30,15 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Gallery of the Unknown</h1>
       </header>
-      <GalleryList gallery={galleryList} fetchGallery={fetchGallery}/>
+      <main>
+        <section>
+          <AddGalleryImageForm fetchGallery={fetchGallery} />
+        </section>
+
+        <section>
+          <GalleryList gallery={galleryList} fetchGallery={fetchGallery} />
+        </section>
+      </main>
     </div>
   );
 }
