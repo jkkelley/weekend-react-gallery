@@ -67,7 +67,7 @@ router.post("/", (req, res) => {
 
 // DELETE Route
 router.delete("/:id", (req, res) => {
-  const imageToDelete = req.params.id;
+  const imageToDelete = [req.params.id];
   const queryText = `
     DELETE FROM "image_gallery" WHERE "id" = $1;
   `;
