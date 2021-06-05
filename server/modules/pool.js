@@ -27,7 +27,7 @@ if (process.env.DATABASE_URL) {
   config = {
     host: 'localhost',
     port: 5432,
-    database: process.env.DATABASE_NAME || 'react_gallery', // CHANGE THIS LINE to match your local database name!
+    database: 'react_gallery', // CHANGE THIS LINE to match your local database name!
   };
 }
 // this creates the pool that will be shared by all other modules
