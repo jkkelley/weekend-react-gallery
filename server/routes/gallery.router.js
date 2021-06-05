@@ -7,10 +7,10 @@ const pool = require("../modules/pool.js");
 // PUT Route
 router.put("/like/:id", (req, res) => {
   console.log(req.params);
-  
-  let number = 1;
-  const queryText = `UPDATE "image_gallery" SET "likes"=likes+1 WHERE "id" = $1;`;
 
+  // We update the likes by 1 each click.
+  const queryText = `UPDATE "image_gallery" SET "likes"=likes+1 WHERE "id" = $1;`;
+  // No fancy for loop here, just good ol' hand washing
   pool
     .query(queryText, [req.params.id])
     .then((result) => {
@@ -20,13 +20,6 @@ router.put("/like/:id", (req, res) => {
     .catch((error) => {
       console.log(`HEY, FIRE... ${error}`);
     });
-  //   const galleryId = req.params.id;
-  //   for (const galleryItem of galleryItems) {
-  //     if (galleryItem.id == galleryId) {
-  //       galleryItem.likes += 1;
-  //     }
-  //   }
-  //   res.sendStatus(200);
 }); // END PUT Route
 
 // GET Route
@@ -44,7 +37,33 @@ router.get("/", (req, res) => {
       // Better send back a lost in space code
       res.sendStatus(500);
     });
-  // res.send(galleryItems);
+
 }); // END GET Route
+
+// POST Route
+router.post("/", (req, res) => {
+  // De-structure keys from the body
+  const { path, description } = req.body;
+
+  // Query to insert data
+  const queryText = `
+      INSERT INTO "image_gallery" (path, description)
+      VALUES ($1, $2);
+    `;
+
+  const values = [path, description];
+
+  // Rumor has it, this has been SANITIZED...
+  pool
+    .query(queryText, values)
+    .then((result) => {
+      // Send back a fulfilled code
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      console.log(`The post routes on FIRE... ${error}`);
+      res.sendStatus(500);
+    });
+});
 
 module.exports = router;
