@@ -37,7 +37,6 @@ router.get("/", (req, res) => {
       // Better send back a lost in space code
       res.sendStatus(500);
     });
-
 }); // END GET Route
 
 // POST Route
