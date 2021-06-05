@@ -36,7 +36,7 @@ function AddGalleryImageForm({ fetchGallery }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h3>Add To the Gallery, Don't forget to push those "likes" button!</h3>
+      <h3>Add To the Gallery, Don't forget to push those "love it!" buttons!</h3>
       <input
         value={absolutePathInput}
         onChange={(event) => setAbsolutePathInput(event.target.value)}
