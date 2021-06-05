@@ -46,7 +46,7 @@ function GalleryItem({ gallery, fetchGallery }) {
       .delete(`/gallery/${gallery.id}`)
       .then((response) => {
         console.log(`The SERVER says... ${response.data}`);
-        // Re-draw want me need please react
+        // Re-draw want we need please react
         fetchGallery();
       })
       .catch((error) => {
