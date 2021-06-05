@@ -37,7 +37,6 @@ router.get("/", (req, res) => {
       // Better send back a lost in space code
       res.sendStatus(500);
     });
-
 }); // END GET Route
 
 // POST Route
@@ -62,6 +61,27 @@ router.post("/", (req, res) => {
     })
     .catch((error) => {
       console.log(`The post routes on FIRE... ${error}`);
+      res.sendStatus(500);
+    });
+});
+
+// DELETE Route
+router.delete("/:id", (req, res) => {
+  const imageToDelete = req.params.id;
+  const queryText = `
+    DELETE FROM "image_gallery" WHERE "id" = $1;
+  `;
+  
+  // Nice day for a swim, Let's check out the...
+  pool
+    .query(queryText, imageToDelete)
+    .then((result) => {
+      // Send them back a OK
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Sorry your DELETION wasn't handled... ${error}`);
+      // I don't know how these keep getting lost.
       res.sendStatus(500);
     });
 });
