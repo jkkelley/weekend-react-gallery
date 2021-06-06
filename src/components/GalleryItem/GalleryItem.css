@@ -7,16 +7,22 @@
   flex-direction: column;
   justify-content: space-between;
   margin-top: 10px;
+  position: relative;
 }
 
 .img-container {
   width: 200px;
   height: 200px;
+  border-radius: 15px;
 }
 
 .pic-container {
-  width: 199px;
-  height: 168px;
+  display: flex;
+  width: 200px;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .love-it-button {
@@ -24,5 +30,5 @@
 }
 
 .love-it-p-tag {
-    height: 15px
+  height: 15px;
 }
