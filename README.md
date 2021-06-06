@@ -4,7 +4,7 @@
 
 Disclaimer - Styling still a work in process....
 
-Welcome to your React Gallery. The gallery has some stock images included for you, you can delete them and start fresh or add on to them using the form at the top. You can click on a picture and flip it to see it's description. You have a favorite "star" button, "love it!" button that increases the the likes count. You also have the option to delete an item from the gallery.
+Welcome to your React Gallery. This gallery was built with React, it's a really cool framework to work with. The gallery has some stock images included for you, you can delete them and start fresh or add on to them using the form at the top. You can click on a picture and flip it to see it's description. You have a favorite "star" button, "love it!" button that increases the the likes count. You also have the option to delete an item from the gallery.
 
 To see the fully functional site, please visit: [here](https://fierce-river-97762.herokuapp.com/)
 
