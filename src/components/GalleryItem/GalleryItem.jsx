@@ -68,7 +68,7 @@ function GalleryItem({ gallery, fetchGallery }) {
           src={gallery.path}
         />
       )}
-      <FavoriteButton fetchGallery={fetchGallery} />
+      <FavoriteButton gallery={gallery} fetchGallery={fetchGallery}/>
       <div>
         <button className="love-it-button" onClick={handleUpLikes}>
           love it!
