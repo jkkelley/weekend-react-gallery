@@ -8,12 +8,12 @@ function GalleryItem({ gallery, fetchGallery }) {
   // We want to be able to flip between states
   const handleFlip = () => {
     // NOT FALSE === true
-    if (!isHidden) {
+    if (isHidden) {
       // set State to true
-      setIsHidden(true);
+      setIsHidden(false);
     } else {
       // set State to false
-      setIsHidden(false);
+      setIsHidden(true);
     }
   };
 
