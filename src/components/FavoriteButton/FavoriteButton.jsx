@@ -1,9 +1,9 @@
+import { useState } from "react";
+import IconButton from "@material-ui/core/IconButton";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import StarIcon from "@material-ui/icons/Star";
-import IconButton from "@material-ui/core/IconButton";
-import { useState } from "react";
 
-function FavoriteButton() {
+function FavoriteButton({fetchGallery}) {
   // set favorite button state to false
   const [favoriteButton, setFavoriteButton] = useState(false);
   return (
