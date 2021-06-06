@@ -4,7 +4,7 @@ const router = express.Router();
 const pool = require("../modules/pool.js");
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
-// PUT Route
+// PUT Routes
 router.put("/like/:id", (req, res) => {
   console.log(req.params);
 
@@ -21,6 +21,34 @@ router.put("/like/:id", (req, res) => {
       console.log(`HEY, FIRE... ${error}`);
     });
 }); // END PUT Route
+
+router.put("/favorite_button/:id", (req, res) => {
+  // Set the action clicked data from client to variable
+  const favoriteAction = req.body.data;
+  // Update DB favorite_button
+  let queryText = "";
+  if (favoriteAction === true) {
+    queryText = `
+    UPDATE "image_gallery" SET "favorite_button"=false WHERE "id"=$1;
+  `;
+  } else {
+    queryText = `
+    UPDATE "image_gallery" SET "favorite_button"=true WHERE "id"=$1;
+  `;
+  }
+
+  pool
+    .query(queryText, [req.params.id])
+    .then((result) => {
+      // Send back OK
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Your favorite button click had an... ${error}`);
+      // Send the lost in space code
+      res.sendStatus(500);
+    });
+});
 
 // GET Route
 router.get("/", (req, res) => {
@@ -71,7 +99,7 @@ router.delete("/:id", (req, res) => {
   const queryText = `
     DELETE FROM "image_gallery" WHERE "id" = $1;
   `;
-  
+
   // Nice day for a swim, Let's check out the...
   pool
     .query(queryText, imageToDelete)
