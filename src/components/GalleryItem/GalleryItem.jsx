@@ -1,6 +1,7 @@
+import "./GalleryItem.css";
 import { useState } from "react";
 import axios from "axios";
-import "./GalleryItem.css";
+import FavoriteButton from '../FavoriteButton/FavoriteButton'
 
 function GalleryItem({ gallery, fetchGallery }) {
   const [isHidden, setIsHidden] = useState(false);
@@ -67,6 +68,7 @@ function GalleryItem({ gallery, fetchGallery }) {
           src={gallery.path}
         />
       )}
+      <FavoriteButton />
       <div>
         <button className="love-it-button" onClick={handleUpLikes}>
           love it!
