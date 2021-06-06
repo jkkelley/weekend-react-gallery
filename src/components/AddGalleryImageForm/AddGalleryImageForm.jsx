@@ -1,11 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import GalleryListGet from "../GalleryListGet/GalleryListGet"
 
 function AddGalleryImageForm({ fetchGallery }) {
-  /* 
-        Need react to hold onto some states for us.
-    */
 
+  // Need react to hold onto some states for us.
   const [absolutePathInput, setAbsolutePathInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
 
@@ -52,6 +51,7 @@ function AddGalleryImageForm({ fetchGallery }) {
         value={descriptionInput}
       />
       <button type="submit">Add To Gallery</button>
+      <GalleryListGet fetchGallery={fetchGallery} />
     </form>
   );
 }

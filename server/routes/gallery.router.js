@@ -26,19 +26,13 @@ router.put("/favorite_button/:id", (req, res) => {
   // Set the action clicked data from client to variable
   const favoriteAction = req.body.data;
   // Update DB favorite_button
-  let queryText = "";
-  if (favoriteAction === true) {
-    queryText = `
-    UPDATE "image_gallery" SET "favorite_button"=false WHERE "id"=$1;
+  console.log(favoriteAction)
+  const queryText = `
+    UPDATE "image_gallery" SET "favorite_button"=$1 WHERE "id"=$2;
   `;
-  } else {
-    queryText = `
-    UPDATE "image_gallery" SET "favorite_button"=true WHERE "id"=$1;
-  `;
-  }
 
   pool
-    .query(queryText, [req.params.id])
+    .query(queryText, [favoriteAction, req.params.id])
     .then((result) => {
       // Send back OK
       res.sendStatus(200);
