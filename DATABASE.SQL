@@ -4,7 +4,7 @@
 CREATE TABLE "image_gallery" (
     id SERIAL PRIMARY KEY,
     path VARCHAR(500),
-    description VARCHAR(500),
+    description VARCHAR(199),
     likes NUMERIC DEFAULT 0
 );
 

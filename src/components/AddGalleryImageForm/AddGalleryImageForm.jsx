@@ -46,9 +46,10 @@ function AddGalleryImageForm({ fetchGallery }) {
         placeholder="Valid URL"
       />
       <input
-        value={descriptionInput}
+        maxLength="199"
         onChange={(event) => setDescriptionInput(event.target.value)}
         placeholder="Description"
+        value={descriptionInput}
       />
       <button type="submit">Add To Gallery</button>
     </form>
